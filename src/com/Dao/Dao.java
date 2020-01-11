@@ -147,10 +147,9 @@ public class Dao {
 		try {
 			con = ConnectionDb.get_connection();
 			con.setAutoCommit(false);
-			ps = con.prepareStatement("insert into booked values(?,(select SYSDATE() from dual)?,?)");
-			ps.setInt(1,0);
-			ps.setInt(2, roomid);
-			ps.setInt(3, user.getUserId());
+			ps = con.prepareStatement("insert into booked values(0,(select SYSDATE() from dual),?,?)");
+			ps.setInt(1, roomid);
+			ps.setInt(2, user.getUserId());
 			status=	ps.executeUpdate();
 			if(status>0) {
 			changeRoomStatus(roomid);	

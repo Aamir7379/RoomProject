@@ -25,8 +25,8 @@ public class BookedRoom extends HttpServlet {
 			HttpSession session = request.getSession(false);
 			User user = (User) session.getAttribute("User");
 			System.out.println(user);
-			String roomId = request.getParameter("roomid").trim();
-			int roomid = Integer.parseInt(roomId);
+			String roomId = request.getParameter("roomid");
+			int roomid = Integer.parseInt(roomId.trim());
 			Dao doa = new Dao();
 			int status = doa.bookedRoom(roomid, user);
 			if (status > 0) {
