@@ -1,0 +1,95 @@
+/*
+SQLyog Enterprise Trial - MySQL GUI v7.11 
+MySQL - 5.1.44-community : Database - guest
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`guest` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `guest`;
+
+/*Table structure for table `admin_roles` */
+
+DROP TABLE IF EXISTS `admin_roles`;
+
+CREATE TABLE `admin_roles` (
+  `id` int(11) DEFAULT NULL,
+  `User_name` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `Name` varchar(50) DEFAULT NULL,
+  `Address` varchar(50) DEFAULT NULL,
+  `Phone_Number` int(11) DEFAULT NULL,
+  `Date_of_joining` varchar(50) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `Admin_roles` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `admin_roles` */
+
+/*Table structure for table `booked` */
+
+DROP TABLE IF EXISTS `booked`;
+
+CREATE TABLE `booked` (
+  `Booked_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Booked_Date` varchar(50) DEFAULT NULL,
+  `Room_Id` int(11) DEFAULT NULL,
+  `User_Id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Booked_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `booked` */
+
+/*Table structure for table `room` */
+
+DROP TABLE IF EXISTS `room`;
+
+CREATE TABLE `room` (
+  `Room_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Room_Name` varchar(50) DEFAULT NULL,
+  `State` varchar(50) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `Room_image` varchar(50) CHARACTER SET latin1 COLLATE latin1_danish_ci DEFAULT NULL,
+  `Square_fit` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `Room_view` varchar(50) DEFAULT NULL,
+  `CreatedBy` varchar(25) DEFAULT NULL,
+  `Room_status` varchar(25) DEFAULT NULL,
+  `Discription` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`Room_Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `room` */
+
+insert  into `room`(`Room_Id`,`Room_Name`,`State`,`city`,`Room_image`,`Square_fit`,`price`,`Room_view`,`CreatedBy`,`Room_status`,`Discription`) values (1,'Queen_Room','Mumbai','Sakinaka','images/property_1.jpg',4250,20000,'one Bhk 6 Beds, 4 Baths','Aamir','Booked','Standard Queen Room. Standard Queen rooms are medium sized rooms and offer a queen sized bed, en sui'),(2,'King_Room',' Mumbai','kurla','images/property_2.jpg',4250,21000,'Two Bhk/6/Beds/4 Baths','Zeyad','Booked','King: A room with a king-size bed. It may be occupied by one or more people (Size: 198 x 203 cm). ..'),(3,'laxury_Room',' Mumbai','Bandra','images/property_3.jpg',4250,22000,'Three Bhk/6/Beds/4 Baths','Danis','Booked','Luxury room features: High-quality furnishings with opulent, expensive touches, attention to aesthet');
+
+/*Table structure for table `user_login` */
+
+DROP TABLE IF EXISTS `user_login`;
+
+CREATE TABLE `user_login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `User_name` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `Name` varchar(50) DEFAULT NULL,
+  `Address` varchar(50) DEFAULT NULL,
+  `Phone_Number` mediumtext,
+  `Date_of_joining` varchar(50) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `User_roles` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+/*Data for the table `user_login` */
+
+insert  into `user_login`(`id`,`User_name`,`password`,`Name`,`Address`,`Phone_Number`,`Date_of_joining`,`mail`,`User_roles`) values (2,'kalim','abcd','KALIMKHAN','kurla','56536345','2019-12-28 13:43:25','brijesh@gmail.com','zyyz'),(3,'aadil','xyz','mohdaadil','sakinaka','7379181871','2019-12-28 15:32:00','suhail@gmai.com','wydgywed'),(4,'aamir','karmaini','wewew','sakinaka','7379181871','2019-12-30 14:51:08','suhail@gmai.com','wydgywed'),(5,'','734r644','hfbhdb','fvdgdfg','7379181871','2020-01-04 13:57:53','suhail@gmai.com','hbdhb'),(6,'','sgdhgcyhy','hhdgh','fvdgdfgshvdbxhs','7379181871','2020-01-04 13:58:24','suhail@gmai.com','hbdhb'),(7,'','karmaini','umar','kurla','56536345','2020-01-04 14:01:49','suhail@gmai.com','aamir'),(8,'anwar101','anwar2','Anwar malik','d wing thane','9702639889','2020-01-07 17:54:56','anwarmalikbkl@gmail.com','beginner');
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
