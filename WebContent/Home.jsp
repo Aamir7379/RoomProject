@@ -61,7 +61,14 @@
                 <li><a href="#agents-section" class="nav-link">Room_Booked</a></li>
                 <li><a href="#about-section" class="nav-link">About</a></li>
                 <li><a href="#news-section" class="nav-link">News</a></li>
+                <c:choose>
+                 <c:when test="${sessionScope.User!=null}">
                 <li><a href="Login.jsp" class="nav-link">Logout</a></li>
+    		</c:when>    
+    		<c:otherwise>
+                <li><a href="Login.jsp" class="nav-link">Login</a></li>        
+                  	</c:otherwise>
+                   </c:choose>
               </ul>
             </nav>
           </div>
